@@ -1,0 +1,35 @@
+@font-face{
+    font-family: 'f1';
+    src:
+    url('KGPrimaryDotsLined-webfont.woff2') format('woff2'),
+    url('KGPrimaryDotsLined-webfont.woff') format('woff'),
+    url('KGPrimaryDotsLined-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'f1';
+    src: url('7d9da63b8ed399bc44c299f937979652.woff2') format('woff2'),
+    url('7d9da63b8ed399bc44c299f937979652.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'f1';
+    src: url('8f66bc06a6bc7fefd19d0c0c63feef18.woff2') format('woff2'),
+    url('8f66bc06a6bc7fefd19d0c0c63feef18.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'f1';
+    src: url('596f91f909ed033dfc7e08381e93b3d8.woff2') format('woff2'),
+    url('596f91f909ed033dfc7e08381e93b3d8.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

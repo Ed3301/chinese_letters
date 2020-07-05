@@ -1,0 +1,35 @@
+@font-face{
+    font-family: 'f4';
+    src:
+    url('KGPrimaryPenmanship-webfont.woff2') format('woff2'),
+    url('KGPrimaryPenmanship-webfont.woff') format('woff'),
+    url('KGPrimaryPenmanship-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'f4';
+    src: url('5c8a9a68890a78bff800236094ee535f.woff2') format('woff2'),
+    url('5c8a9a68890a78bff800236094ee535f.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'f4';
+    src: url('22e62c7c1d868e92f1697be3471f7e54.woff2') format('woff2'),
+    url('22e62c7c1d868e92f1697be3471f7e54.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'f4';
+    src: url('d2b2ea057ecff620990c133ba2fbaa22.woff2') format('woff2'),
+    url('d2b2ea057ecff620990c133ba2fbaa22.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

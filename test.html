@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Laravel</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <!-- Styles -->
+    <link href="./app.css" rel="stylesheet">
+    <link href="./main.css" rel="stylesheet">
+    <link rel="stylesheet" href="./fonts/f1.css" type="text/css"/>
+    <link rel="stylesheet" href="./fonts/f2.css" type="text/css"/>
+    <link rel="stylesheet" href="./fonts/f3.css" type="text/css"/>
+    <link rel="stylesheet" href="./fonts/f4.css" type="text/css"/>
+
+    <!-- scripts -->
+
+    <script src="./jquery.js"></script>
+    <script src="./app.js"></script>
+    <script src="html2pdf/dist/html2pdf.bundle.min.js"></script>
+
+</head>
+<body>
+<div class="flex-center position-ref full-height">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <form id="mainForm" method="POST">
+
+                    <div class="row instruments flex-column">
+                        <div class="col-10">
+                            <label for="display">Select language</label>
+                            <select id="lang" name="lang" class="custom-select">
+                                <option selected value="chi">Chinese</option>
+                                <option value="eng">English</option>
+                            </select>
+                        </div>
+                        <div class="col-10">
+                            <div class="form-group">
+                                <label for="textarea1">Please enter your text below</label>
+                                <textarea class="form-control" name="text" id="textarea1" rows="3" cols="3">你好</textarea>
+                            </div>
+                        </div>
+                        <div class="col-10 d-show">
+                           <label for="paperSelect">Paper size</label>
+                           <select name="paper-size" id="paperSelect" class="custom-select">
+                               <option selected value="a4">A4</option>
+                               <option value="letter">Letter size</option>
+                           </select>
+                            <label for="rowSpace">Row spacing</label>
+                            <input name="row-spacing" value="0" type="range" class="custom-range" id="rowSpace">
+                        </div>
+                        <div class="col-10 d-show">
+                            <label for="pageOrient">Page Orientation</label>
+                            <select id="pageOrient" name="page-orientation" class="custom-select">
+                                <option selected value="por">Portrait</option>
+                                <option value="land">Landscape</option>
+                            </select>
+                            <label for="colSpace">Col spacing</label>
+                            <input type="range" value="0" name="col-spacing" class="custom-range" id="colSpace">
+                        </div>
+                        <div class="col-10 char-display">
+                            <label for="display">Character Display</label>
+                            <select id="display" name="character-display" class="custom-select">
+                                <option selected value="ind">Individual Characters</option>
+                                <option value="con">Continuous Characters</option>
+                            </select>
+                        </div>
+                        <div class="col-10 d-show">
+                            <br>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="exampleRadios" id="alternativeRow" value="option1">
+                                <label class="form-check-label" for="alternativeRow">
+                                    Alternate row with words and gridlines
+                                </label>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="col-10">
+                            <label for="fontSize">Font size</label>
+                            <input type="range" name="font-size" min="0" max="60" class="custom-range" id="fontSize">
+                        </div>
+                        <div class="col-10">
+                            <label for="midTitle">Title Name</label>
+                            <input class="ml-5" type="text" name="mid-title" value="Name 1" id="midTitle">
+                            <br>
+                            <br>
+                            <label for="titleSize">Title Font Size</label>
+                            <input type="range" name="title-letter-size" class="custom-range" id="titleSize">
+                        </div>
+                        <div class="col-10">
+                            <div class="custom-control custom-checkbox">
+                                <input checked type="checkbox" name="gradual-fade" class="custom-control-input" id="gradFade">
+                                <label class="custom-control-label" for="gradFade">Gradual Fade</label>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="col-10 d-show">
+                            <label for="lineSet">Grid style</label>
+                            <select id="lineSet" class="custom-select">
+                                <option selected value="1">Cross (default)</option>
+                                <option value="2">Diagonal lines</option>
+                                <option value="3">Vertical lines (No horizontal lines)</option>
+                                <option value="4">Horizontal lines (No vertical lines)</option>
+                                <option value="5">No lines</option>
+                            </select>
+                        </div>
+                        <div class="col-10 d-show">
+                            <br>
+                            <input type="checkbox" id="showPinyin">
+                            <label for="showPinyin">Show Pinyin</label>
+                            <br>
+                            <input type="color" class="form-control">
+                        </div>
+                        <div class="col-10 d-show">
+                            <br>
+                            <input type="checkbox" id="showStroke">
+                            <label for="showStroke">Show stroke order</label>
+                            <br>
+                            <input type="checkbox" id="altRow">
+                            <label for="altRow">Alternate row with stroke order and words</label>
+                        </div>
+                        <div class="col-10 d-show">
+                            <label for="strokeOrderColor">Stroke Order Color</label>
+                            <br>
+                            <input type="color" id="strokeOrderColor" class="form-control">
+                            <br>
+                            <label for="transientStrokeColor">Transient Stroke Color</label>
+                            <br>
+                            <input type="color" id="transientStrokeColor" class="form-control">
+                        </div>
+                        <div class="col-10 d-show">
+                            <br>
+                            <div class="form-check p-0">
+                                <input type="checkbox" id="pageTail" value="option1">
+                                <label class="form-check-label" for="pageTail">
+                                    Fill Page
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <br>
+                            <label for="font">Font</label>
+                            <select id="font" name="font" class="custom-select">
+                                <option selected value="f1">Kgprimary dots lined</option>
+                                <option value="f2">Kgprimary dots</option>
+                                <option value="f3">Kgprimary penmanship lined</option>
+                                <option value="f4">Kgprimary penmanship</option>
+                            </select>
+                        </div>
+                        <div class="col-10">
+                            <br>
+                            <label for="strokeColor">Grid Color</label>
+                            <input type="color" class="form-control" id="strokeColor">
+                        </div>
+                        <div class="col-10">
+                            <label for="fontColor">Font Color</label>
+                            <input type="color" name="color" class="form-control" id="fontColor">
+                        </div>
+                        <div class="col-10">
+                            <br>
+                            <div class="custom-file">
+                                    <input type="file" name="photo" class="custom-file-input" id="photo">
+                                    <label class="custom-file-label" for="photo">Upload photo</label>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="buttons mt-5">
+                        <input type="hidden" id="pdfContent" name="pdfContent" value="0">
+                        <button id="submitButton" type="button" class="btn btn-primary">Create PDF</button>
+                        <button onclick="location.reload()" type="button" class="btn btn-danger">Reset</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-6">
+                <div id="pdfView" class="container-fluid text-center form">
+
+                    <p id="tableTitle" class="text-center">Name 1</p>
+
+                    <table class="table table-bordered" id="pageTable">
+
+                    </table>
+
+                    <div id="engText" class="container-fluid border overflow-hidden" style="display: none"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

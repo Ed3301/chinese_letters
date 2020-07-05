@@ -1,0 +1,35 @@
+@font-face{
+    font-family: "f3";
+    src:
+    url("KGPrimaryPenmanshipLined-webfont.woff2") format("woff2"),
+    url("KGPrimaryPenmanshipLined-webfont.woff") format("woff"),
+    url("KGPrimaryPenmanshipLined-webfont.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "f3";
+    src: url("bf5c7b424cc2f8499a6b9e4635ce50ca.woff2") format("woff2"),
+    url("bf5c7b424cc2f8499a6b9e4635ce50ca.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "f3";
+    src: url("b52fb7f1c8d9871e642f958f2d9d7d22.woff2") format("woff2"),
+    url("b52fb7f1c8d9871e642f958f2d9d7d22.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "f3";
+    src: url("1ef81e93549c743729129e9f4ec0cb2b.woff2") format("woff2"),
+    url("1ef81e93549c743729129e9f4ec0cb2b.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

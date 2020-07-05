@@ -1,0 +1,50 @@
+html, body {
+    background-color: #fff !important;
+    color: #636b6f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+td, table {
+    overflow: hidden !important;
+}
+.row-space td {
+    border: none !important;
+}
+
+.small-dashed-div {
+    border-top: 1px dashed;
+    border-bottom: 1px dashed;
+    height: 15px;
+    opacity: .5;
+}
+
+.big-dashed-div-left {
+    border-right: 1px dashed;
+    border-bottom: 1px dashed;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    opacity: .3;
+}
+
+.big-dashed-div-b-right {
+    border-top: 1px dashed;
+    border-left: 1px dashed;
+    height: 50px;
+    width: 50px;
+    margin-top: -1px !important;
+    margin-left: -2px !important;
+    padding: 0;
+    opacity: .3;
+}
+
+table {
+    border: none !important;
+}
+td {
+    border: 1px solid black !important;
+}
+

@@ -1,0 +1,35 @@
+@font-face{
+    font-family: "f2";
+    src:
+    url("KGPrimaryDots-webfont.woff2") format("woff2"),
+    url("KGPrimaryDots-webfont.woff") format("woff"),
+    url("KGPrimaryDots-webfont.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "f2";
+    src: url("130dae1e202a9ea981130db8fe5d82a5.woff2") format("woff2"),
+    url("130dae1e202a9ea981130db8fe5d82a5.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "f2";
+    src: url("ce7eae866d49a23be144789c116ac2e9.woff2") format("woff2"),
+    url("ce7eae866d49a23be144789c116ac2e9.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "f2";
+    src: url("db908973868376c4b2a87b4cc60842cb.woff2") format("woff2"),
+    url("db908973868376c4b2a87b4cc60842cb.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
