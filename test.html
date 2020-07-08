@@ -35,7 +35,9 @@
                 <div class="col-10">
                   <label for="display">Select language</label>
                   <select id="lang" name="lang" class="custom-select">
-                    <option selected value="chi">Chinese</option>
+                    <option selected="selectedPaper" value="chi"
+                      >Chinese</option
+                    >
                     <option value="eng">English</option>
                   </select>
                 </div>
@@ -251,12 +253,12 @@
                   </select>
                 </div>
 
-                <div class="col-10 font-select">
+                <div class="col-10 show-select">
                   <br />
                   <label for="line">Lines</label>
                   <select id="line" name="line" class="custom-select">
                     <option value="noLine" selected>No line</option>
-                    <option value="oneLine">One line</option>
+                    <option value="oneLine" class="oneLine">One line</option>
                     <option value="twoLine">Two line</option>
                   </select>
                 </div>

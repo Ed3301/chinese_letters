@@ -1,13 +1,38 @@
 $(document).ready(function () {
   let options = {
     html2canvas: { scale: 4 },
-    jsPDF: { orientation: "p" },
+    jsPDF: { orientation: "p", format: ["a4", "letter"] },
   };
 
   $("#pageOrient").on("change", function () {
     options.jsPDF.orientation = $(this).val();
-    options.jsPDF.setFillColor;
   });
+
+  $("#paperSelect").on("change", function () {
+    if ($("#paperSelect").val() === "a4") {
+      options.jsPDF.format = "a4";
+      console.log(2);
+    } else {
+      options.jsPDF.format = "letter";
+      console.log(3);
+    }
+    console.log(4);
+  });
+
+  // page reload
+  let selected = localStorage.getItem("selectedPaper");
+  if (selected) {
+    $("#lang").val(selected);
+  }
+
+  $("#lang").change(function () {
+    if ($("#lang").val() === "chi") {
+      localStorage.setItem("selected", $(this).val());
+      location.reload();
+    }
+  });
+
+  //========================================================================
 
   $("#submitButton").on("click", function () {
     html2pdf().from($("#pdfView")[0]).set(options).save();
@@ -132,6 +157,7 @@ $(document).ready(function () {
           border: "1px dashed black",
         });
         break;
+      //=====================================================================
     }
   });
 
@@ -141,7 +167,10 @@ $(document).ready(function () {
 
   $("#gradFade").on("change", function () {
     let grad = $(this)[0].checked;
+
     $("tr").each(function (index) {
+      console.log(1);
+
       $(this).each(function (i) {
         $(this)
           .find("span")
@@ -154,8 +183,17 @@ $(document).ready(function () {
           });
       });
     });
-    // $('#engText p').each( function(index) {
-    //
+
+    // $("#engText p").each(function (index) {
+    //   $(this).each(function (i) {
+    //     $(this).each(function (j) {
+    //       if (grad) {
+    //         $(this).css("opacity", (10 - j) / 10);
+    //       } else {
+    //         $(this).css("opacity", 1);
+    //       }
+    //     });
+    //   });
     // });
   });
 
@@ -237,7 +275,31 @@ $(document).ready(function () {
   $("#photo").change(function () {
     readURL(this);
   });
+
+  $("#line").on("change", function () {
+    if ($("#line").val() === "oneLine") {
+      $("#engText .display").attr("style", "display: none !important");
+
+      $("#engText .display-bottom").attr("style", "display: block !important");
+      $("#engText p").css("font-family", "f2");
+      $("#font").val("f2");
+    } else if ($("#line").val() === "twoLine") {
+      $("#engText .display-bottom").attr("style", "display: none !important");
+
+      $("#engText .display").attr("style", "display: block !important");
+      $("#engText p").css("font-family", "f4");
+      $("#engText p").css("margin-top", "0px");
+      $("#font").val("f4");
+    } else if ($("#line").val() === "noLine") {
+      $("#engText .display-bottom").attr("style", "display: none !important");
+      $("#engText .display").attr("style", "display: none !important");
+
+      $("#engText p").css("font-family", "f2");
+    }
+  });
 });
+
+// ================================================================================
 
 function renderTable() {
   let grad = $("#gradFade")[0].checked;
@@ -252,13 +314,19 @@ function renderTable() {
 
       for (let i = 0; i < $("#textarea1").val().length; i++) {
         let p = $(
-          '<p class="border-bottom" style="font-size: 70px; margin-top: 15px; margin-bottom: -30px;"></p>'
+          '<p class="border-bottom text-line" style="font-size: 70px; margin-top: 15px; margin-bottom: -30px;"></p>'
         );
         for (let j = 0; j < (parseInt($("#colSpace").val()) ? 5 : 14); j++) {
           p.append($("#textarea1").val()[i]);
         }
         p.css({ fontFamily: $("#font").val() });
-        $("#engText").append(p);
+
+        let div = $("<div></div>");
+        div.append('<div class="display display-top"></div>');
+        div.append(p);
+        div.append('<div class="display-bottom"></div>');
+
+        $("#engText").append(div);
       }
     } else {
       for (let i = 0; i < $("#textarea1").val().length; i++) {
