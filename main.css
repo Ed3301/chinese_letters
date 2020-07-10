@@ -58,7 +58,7 @@ td {
 .display-bottom {
   z-index: 0;
   position: relative;
-  top: -9px;
+  top: -10px;
   display: none;
   border-top: 1px solid black;
   color: transparent;
@@ -67,10 +67,10 @@ td {
 .display {
   z-index: 0;
   position: relative;
-  top: 75px !important;
+  top: 74px !important;
   display: none;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
   color: #fff;
-  height: 44px !important;
+  height: 43px !important;
 }

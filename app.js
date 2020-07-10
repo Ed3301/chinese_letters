@@ -245,16 +245,6 @@ $(document).ready(function () {
     }
   });
 
-  // image for english text
-  $("#textarea1").on("change keydown", function () {
-    if ($("#lang").val() === "eng") {
-      let text = $("#textarea1").val();
-      $("#engText").prepend(
-        `<img style="width: 150px" src="letters_png/${text[0]}.png" alt="Image"/>`
-      );
-    }
-  });
-
   // show image for english text
   $("#showImg").on("click", function () {
     $("#engText img").toggle();
@@ -277,29 +267,43 @@ $(document).ready(function () {
   });
 
   $("#line").on("change", function () {
-    if ($("#line").val() === "oneLine") {
-      $("#engText .display").attr("style", "display: none !important");
-
-      $("#engText .display-bottom").attr("style", "display: block !important");
-      $("#engText p").css("font-family", "f2");
-      $("#font").val("f2");
-    } else if ($("#line").val() === "twoLine") {
-      $("#engText .display-bottom").attr("style", "display: none !important");
-
-      $("#engText .display").attr("style", "display: block !important");
-      $("#engText p").css("font-family", "f4");
-      $("#engText p").css("margin-top", "0px");
-      $("#font").val("f4");
-    } else if ($("#line").val() === "noLine") {
-      $("#engText .display-bottom").attr("style", "display: none !important");
-      $("#engText .display").attr("style", "display: none !important");
-
-      $("#engText p").css("font-family", "f2");
-    }
+    lineChange();
   });
 });
 
 // ================================================================================
+
+function lineChange() {
+  if ($("#line").val() === "oneLine") {
+    $("#engText .display").attr("style", "display: none !important");
+
+    $("#engText .display-bottom").attr("style", "display: block !important");
+  } else if ($("#line").val() === "twoLine") {
+    $("#engText .display-bottom").attr("style", "display: none !important");
+
+    $("#engText .display").attr("style", "display: block !important");
+    $("#engText p").css("margin-top", "0px");
+  } else if ($("#line").val() === "noLine") {
+    $("#engText .display-bottom").attr("style", "display: none !important");
+    $("#engText .display").attr("style", "display: none !important");
+  }
+
+  if ($("#font").val() === "f1" || $("#font").val() === "f3") {
+    $("#engText .display, .display-top, .display-bottom").attr(
+      "style",
+      "display: none !important"
+    );
+
+    $("#line").val("noLine");
+  }
+}
+
+function image() {
+  let text = $("#textarea1").val();
+  $("#engText").prepend(
+    `<img style="width: 150px" src="letters_png/${text[0]}.png" alt="Image"/>`
+  );
+}
 
 function renderTable() {
   let grad = $("#gradFade")[0].checked;
@@ -328,6 +332,8 @@ function renderTable() {
 
         $("#engText").append(div);
       }
+      image();
+      lineChange();
     } else {
       for (let i = 0; i < $("#textarea1").val().length; i++) {
         let table = $("#pageTable");
